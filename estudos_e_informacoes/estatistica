@@ -47,6 +47,16 @@ link: https://www.opuspesquisa.com/blog/tecnicas/amostragem/
 
 Tipos de medidas estatisticas
 
+
+MEDIDAS DE TENDÊNCIA CENTRAL
+
+Em estatística, uma tendência central é um valor central ou valor típico para uma
+distribuição de probabilidade. As medidas de tendência central mais comuns são a média aritmética,
+a mediana e moda. Tendências centrais podem ser calculadas tanto para um número finito de
+valores quanto para uma distribuição teórica, a exemplo da distribuição norma
+
+
+MEDIA
 -A média de um conjunto de dados numéricos obtém-se somando
 os valores de todos os dados e dividindo a soma pelo número de  dados.
 
@@ -58,6 +68,16 @@ Mediana:   Depois de ordenados os valores por ordem crescente ou decrescente, a 
 
 - Medidas de variância e desvio padrão
 
+
+MEDIDAS DE DISPERSÃO (Medidas de variabilidade)
+
+As medidas de dispersão medem a variabilidade dos dados em estudo, como por exemplo,
+a amplitude, a variância, o desvio padrão e o coeficiente de variação.
+Elas permitem verificar se o conjunto de dados é homogêneo ou heterogêneo.
+Dica para Medidas de Dispersão: No sentido de caracterizar a heterogeneidade da amostra temos
+que acrescentar à medida de tendência central, uma medida de dispersão, enriquecendo-se assim
+a descrição da população.
+
 Variância:
 
 Dado um conjunto de dados, a variância é uma medida de dispersão que mostra o quão
@@ -67,6 +87,7 @@ OBS:  Se a variância for relativamente pequena, então os dados tendem a estar 
 
 OBS2: Quanto menor é a variância, mais próximos os valores estão da média; mas quanto maior ela é,
 mais os valores estão distantes da média.
+
 
 Desvio Padrão:
 
@@ -95,3 +116,4 @@ Desvio
 
 O desvio é a diferença entre um dos números de um conjunto e a média desse conjunto. Portanto, cada um dos números de um conjunto tem um desvio,
 e esse resultado pode ser diferente para cada um desses elementos.
+
