@@ -1,0 +1,137 @@
+link: https://medium.com/data-hackers/entendendo-o-que-%C3%A9-matriz-de-confus%C3%A3o-com-python-114e683ec509#:~:text=%C3%89%20um%20tabela%20que%20mostra,estamos%20buscando%20foi%20prevista%20corretamente.
+
+1- O que é uma matriz de confusão?
+
+É um tabela que mostra as frequências de classificação para cada classe do modelo.
+Pegando o exemplo acima, ela vai nos mostrar as frequências:
+
+-Verdadeiro positivo (true positive — TP): ocorre quando no conjunto real, a classe que estamos
+buscando foi prevista corretamente. Por exemplo, quando a mulher está grávida e o modelo previu corretamente
+que ela está grávida.
+
+-Falso positivo (false positive — FP): ocorre quando no conjunto real, a classe que estamos buscando prever
+foi prevista incorretamente. Exemplo: a mulher não está grávida, mas o modelo disse que ela está.
+
+-Verdadeiro negativo (true negative — TN): ocorre quando no conjunto real, a classe que não estamos buscando
+prever foi prevista corretamente. Exemplo: a mulher não estava grávida, e o modelo previu corretamente que ela não está.
+
+-Falso negativo (false negative — FN): ocorre quando no conjunto real, a classe que
+não estamos buscando prever foi prevista incorretamente. Por exemplo, quando a mulher está grávida e o modelo
+previu incorretamente que ela não está grávida.
+
+
+
+Alguns conceitos importantes decorrentes da matriz
+
+1-Acurácia
+
+Diz quanto o meu modelo acertou das previsões possíveis. No contexto acima, nosso modelo teve uma acurácia de 70%,
+pois acertou 7 das 10 previsões. E a razão entre o somatório das previsões corretas
+(verdadeiros positivos com verdadeiros negativos) sobre o somatório das previsões.
+
+FORMULA DA ACURÁCIA
+
+accurary = TP+TN/TP+FP+TN+FN (predições corretas/todas as predições)
+
+
+2-Recall
+
+Fala o quão bom meu modelo é para prever positivos,
+sendo positivo entendido como a classe que se quer prever, no nosso contexto, se a mulher está grávida.
+É definido como a razão entre verdadeiros positivos sobre a soma de verdadeiros positivos com negativos falsos.
+
+FORMULA RECALL
+
+recall = TP/ TP+FN
+
+
+3-Precisão
+
+Quão bom é o meu modelo?
+Qual a proporção de identificações positivas foi realmente correta? Em outras palavras, o qual bem meu modelo trabalhou.
+
+FÓRMULA DE PRECISÃO
+
+precision = TP/ TP+FP
+
+4- f-score
+
+Já o f-score nos mostra o balanço entre a precisão e o recall de nosso modelo.
+
+FÓRMULA DO f-score
+
+2*(precision*recall/precision+recall)
+
+
+OBS: O pacote metrics do sklearn, possui uma função muito interessante: classification_report,
+que entrega todas as métricas acima prontas em formato tabular, vale a pena a conferida. Tais métricas são consideradas
+para cada classe do nosso modelo.
+
+
+
+
+Script para ser usado no jupyter como exemplo de matriz de confusão
+
+import numpy as np
+
+# 1 para grávida, 0 para não grávida
+valores_reais    = [1, 0, 1, 0, 0, 0, 1, 0, 1, 0]
+valores_preditos = [1, 0, 0, 1, 0, 0, 1, 1, 1, 0]
+
+def get_confusion_matrix(reais, preditos, labels):
+    """
+    Uma função que retorna a matriz de confusão para uma classificação binária
+
+    Args:
+        reais (list): lista de valores reais
+        preditos (list): lista de valores preditos pelo modelos
+        labels (list): lista de labels a serem avaliados.
+            É importante que ela esteja presente, pois usaremos ela para entender
+            quem é a classe positiva e quem é a classe negativa
+
+    Returns:
+        Um numpy.array, no formato:
+            numpy.array([
+                [ tp, fp ],
+                [ fn, tn ]
+            ])
+    """
+    # não implementado
+    if len(labels) > 2:
+        return None
+
+    if len(reais) != len(preditos):
+        return None
+
+    # considerando a primeira classe como a positiva, e a segunda a negativa
+    true_class = labels[0]
+    negative_class = labels[1]
+
+    # valores preditos corretamente
+    tp = 0
+    tn = 0
+
+    # valores preditos incorretamente
+    fp = 0
+    fn = 0
+
+    for (indice, v_real) in enumerate(reais):
+        v_predito = preditos[indice]
+
+        # se trata de um valor real da classe positiva
+        if v_real == true_class:
+            tp += 1 if v_predito == v_real else 0
+            fp += 1 if v_predito != v_real else 0
+        else:
+            tn += 1 if v_predito == v_real else 0
+            fn += 1 if v_predito != v_real else 0
+
+    return np.array([
+        # valores da classe positiva
+        [ tp, fp ],
+        # valores da classe negativa
+        [ fn, tn ]
+    ])
+
+get_confusion_matrix(reais=valores_reais, preditos=valores_preditos, labels=[1,0])
+# array([[3, 1], [2, 4]])
