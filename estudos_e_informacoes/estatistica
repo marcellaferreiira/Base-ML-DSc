@@ -1,0 +1,97 @@
+Módulo estatística
+
+
+-Conceitos sobre o básico que será usado em data science
+
+1- Diferença entre estatística descritiva e inferencial
+A estatística descritiva envolve a organização, resumo e representação dos dados.
+As ferramentas utilizadas para isso são as bem conhecidas tabelas de frequência; gráficos;
+cálculo de medidas de tendência central como média, mediana e moda; e cálculo de medidas de variação
+como variância e desvio padrão.
+
+Já na estatística inferencial estamos sempre interessados em utilizar as informações de uma
+amostra para chegar a conclusões sobre um grupo maior, ao qual não temos acesso.
+Nesse sentido, uma ferramenta muito utilizada na estatística inferencial é a probabilidade.
+
+link: https://posgraduando.com/diferenca-entre-estatistica-descritiva-e-inferencial/
+
+
+
+2- Qual é a diferença entre uma população e uma amostra?
+
+Uma população é um conjunto de pessoas, itens ou eventos sobre os quais você quer fazer inferências.
+Nem sempre é conveniente ou possível examinar todos os membros de uma população inteira.
+Por exemplo, não é prático para contar os amassados em todas as maçãs colhidas em um pomar.
+É possível, no entanto, para contar os amassados em um conjunto de maçãs tomadas a partir dessa população.
+Este subconjunto de população é chamado de uma amostra.
+
+
+
+3- Tipos de amostra propabilistia
+Tipos de amostragem probabilística e não-probabilísticas
+Probabilísticas
+Amostra Aleatória simples
+Amostra Sistemática
+Amostra Estratificada
+Amostra por Conglomerado
+
+Não Probabilísticas
+
+Amostra por conveniência
+Amostra por julgamento
+Amostra por cotas
+Amostra bola de neve
+Amostra desproporcional
+
+link: https://www.opuspesquisa.com/blog/tecnicas/amostragem/
+
+Tipos de medidas estatisticas
+
+-A média de um conjunto de dados numéricos obtém-se somando
+os valores de todos os dados e dividindo a soma pelo número de  dados.
+
+-Moda é o valor mais frequente de um conjunto de dados.
+
+Mediana:   Depois de ordenados os valores por ordem crescente ou decrescente, a mediana é:
+– o valor que ocupa a posição central, se a quantidade desses valores for ímpar;
+– a média dos dois valores centrais, se a quantidade desses valores for par.
+
+- Medidas de variância e desvio padrão
+
+Variância:
+
+Dado um conjunto de dados, a variância é uma medida de dispersão que mostra o quão
+distante cada valor desse conjunto está do valor central (médio).
+
+OBS:  Se a variância for relativamente pequena, então os dados tendem a estar mais concentrados em torno da média.
+
+OBS2: Quanto menor é a variância, mais próximos os valores estão da média; mas quanto maior ela é,
+mais os valores estão distantes da média.
+
+Desvio Padrão:
+
+O desvio padrão é capaz de identificar o “erro” em um conjunto de dados, caso quiséssemos
+substituir um dos valores coletados pela média aritmética.
+
+O desvio padrão aparece junto à média aritmética, informando o quão “confiável” é esse valor. Ele é apresentado da seguinte forma:
+
+média aritmética (x) ± desvio padrão (dp)
+
+O cálculo do desvio padrão é feito a partir da raiz quadrada positiva da variância. Portanto:
+
+dp = √var
+
+link: https://brasilescola.uol.com.br/matematica/medidas-dispersao-variancia-desvio-padrao.htm
+
+
+
+Amplitude
+
+A amplitude de um conjunto, em Estatística, é a diferença entre o maior elemento desse conjunto e o menor.
+Em outras palavras, para encontrar a amplitude de uma lista de números, basta subtrair o menor elemento do maior.
+
+
+Desvio
+
+O desvio é a diferença entre um dos números de um conjunto e a média desse conjunto. Portanto, cada um dos números de um conjunto tem um desvio,
+e esse resultado pode ser diferente para cada um desses elementos.

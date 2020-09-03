@@ -1,0 +1,233 @@
+1 - Como melhorar um modelo/algoritimo de classificação baseado primeiramente em árvores de decisões
+
+links: https://www.digitalocean.com/community/tutorials/como-construir-um-classificador-de-machine-learning-em-python-com-scikit-learn-pt
+https://paulovasconcellos.com.br/como-criar-seu-primeiro-projeto-de-data-science-parte-2-de-2-cb9a2fe05eff
+
+        TÓPICOS A SEREM PESQUISADOS
+
+    -Estrutura de Dados: Árvore Binária
+    -Aprendizado de Máquina Supervisionado
+    -scikit-learn
+    -pandas
+    -numpy
+    -k-medias
+    -Algoritmos de armazenamento em cluster
+    -árvores e decisão
+    -Sistemas baseados em regras
+
+
+O que são árvores de decisão?
+
+        Árvores de decisão são métodos de aprendizado de máquinas supervisionado não-paramétricos,
+        muito utilizados em tarefas de classificação e regressão.
+
+Aprendizado de máquina supervisionado e não supervisinado
+
+APRENDIZAGEM SUPERVISIONADA:
+Nos é dado um conjunto de dados rotulados que já sabemos qual é a nossa saída correta
+e que deve ser semelhante ao conjunto,tendo a ideia de que existe uma relação entre a entrada e a saída.
+
+Problemas de aprendizagem supervisionados são classificados em problemas de “regressão” e “classificação”.
+
+                PROBLEMAS DE REGRESSÃO
+Em um problema de regressão, estamos tentando prever os resultados em uma saída contínua,
+o que significa que estamos a tentando mapear variáveis ​​de entrada para alguma função contínua.
+
+               PROBLEMAS DE CLASSIFICAÇÃO
+Em um problema de classificação, estamos tentando prever os resultados em uma saída discreta.
+Em outras palavras, estamos tentando mapear variáveis ​​de entrada em categorias distintas.
+
+Exemplo 1:
+Dado um conjunto de dados sobre o tamanho de casas no mercado imobiliário, tentar prever o seu preço.
+Preço em função do tamanho é uma saída contínua, de modo que este é um problema de regressão.
+Poderíamos também transformar esse exemplo em um problema de classificação,
+e em vez de fazer a nossa produção sobre se a casa “é vendida por mais ou menos do que o preço pedido.”
+Aqui estamos classificando as casas com base no preço em duas categorias distintas.
+
+Exemplo 2:
+(A) Regressão — Dada uma imagem de homem/mulher, temos de prever sua idade com base em dados da imagem.
+(B) Classificação — Dada um exemplo de tumor cancerígeno, temos de prever se ele é benigno ou maligno através
+do seu tamanho e idade do paciente.
+
+APRENDIZAGEM NÃO SUPERVISIONADA: A Aprendizagem não supervisionada, por outro lado,
+nos permite abordar problemas com pouca ou nenhuma idéia do que nossos resultados deve ser aparentar.
+Podemos derivar estrutura de dados onde nós não necessariamente saberiamos o efeito das variáveis.
+Podemos derivar essa estrutura, agrupando os dados com base em relações entre as variáveis ​​nos dados.
+Também pode ser usada para reduzir o número de dimensões em um conjunto de dados para concentrar somente nos
+atributos mais úteis, ou para detectar tendências.Com aprendizagem não supervisionada não há feedback com base
+nos resultados da previsão, ou seja, não há professor para corrigi-la.
+
+Exemplo 1:
+Clustering: Dada uma coleção de 1000 pesquisas de uma universidade encontrar uma maneira de agrupar
+automaticamente estas pesquisas em um grupos que são de alguma forma semelhantes ou relacionadas por
+diferentes variáveis, tais como a frequência das palavras, frases, contagem de páginas, etc.
+
+Exemplo 2:
+Outro, exemplo não Clustering, é o “Algoritmo Cocktail Party”, que pode encontrar em uma estrutura de dados
+desorganizada como identificar as vozes individuais e música.
+Abordagens comuns de aprendizagem não supervisionada incluem armazenamento em Cluster K-Médio,
+Hierárquico, e Mapas Auto-organizadores.
+
+
+
+PARTE 2
+
+INTRODUÇAO:
+Em projetos de ciência de dados visando a construção de modelos de machine learning, ou aprendizado estatístico,
+é muito incomum que os dados iniciais estejam já no formato ideal para a construção de modelos.
+São necessários vários passos intermediários de pré-processamento de dados, como por exemplo a codificação de
+variáveis categóricas, normalização de variáveis numéricas, tratamento de dados faltantes, etc.
+A biblioteca scikit-learn -- uma das mais populares bibliotecas de código-aberto para machine learning no mundo
+-- possui diversas funções já integradas para a realização das transformações de dados mais utilizadas.
+ Entretanto, em um fluxo comum de um modelo de aprendizado de máquina, é necessária a aplicação dessas
+ transformações pelo menos duas vezes: a primeira vez para "treinar" o modelo, e depois novamente quando
+ novos dados forem enviados como entrada para serem classificados por este modelo.
+
+Para facilitar o trabalho com esse tipo de fluxo, o scikit-learn possui também uma ferramenta chamada Pipeline,
+ que nada mais é do que uma lista ordenada de transformações que devem ser aplicadas nos dados. Para auxiliar
+ no desenvolvimento e no gerenciamento de todo o ciclo-de-vida dessas aplicações, alem do uso de Pipelines,
+ as equipes de cientistas de dados podem utilizar em conjunto o Watson Machine Learning, que possui dezenas de
+ ferramentas para treinar, gerenciar, hospedar e avaliar modelos baseados em aprendizado de máquina. Além disso,
+ o Watson Machine Learning é capaz de encapsular pipelines e modelos em uma API pronta para uso e integração
+ com outras aplicações.
+
+Durante o desafio 2, você participante irá aprender a construir uma Pipeline para um modelo de classificação
+ e hospedá-lo como uma API com o auxílio do Watson Machine Learning. Uma vez hospedado, você poderá integrar
+ o modelo criado com outras aplicações, como assistentes virtuais e muito mais. Neste notebook,
+ será apresentado um exemplo funcional de criação de um modelo e de uma pipeline no scikit-learn
+ (que você poderá utilizar como template para a sua solução!).
+
+
+ - PERGUNTAS A SEREM RESPONDIDAS
+    -Qual o meu problema alvo?
+            - gerar um modelo de predição melhor
+    -Qual direção tomar
+    -quais dados são importantes e quais não são para a análise
+        - etapada de análise exploratoria
+
+
+- Estapas para usar no modelo
+    - codificação de variaveis categóricas
+    - normalização de variaveis numericas
+    -tratamento de dados faltantes
+
+
+- OBS1: Entretanto, em um fluxo comum de um modelo de aprendizado de máquina, é necessária a aplicação dessas
+ transformações pelo menos duas vezes: a primeira vez para "treinar" o modelo, e depois novamente quando
+ novos dados forem enviados como entrada para serem classificados por este modelo.
+
+- O que posso fazer no mdoelo?
+        - saber se há valores faltantes.   df.isna().any()  df.isna().sum()  --- ja
+        -descartando as linhas que tem poucos valores faltantes
+        -df.shape
+        - verificar quantos valores tem na coluna   df['content_rating']   df['content_rating'].value_counts()
+        - forma para substituir valores faltantes sem apaga-los    df['content_rating'].fillna('R', inplace=True)
+        - substituir usando media e mediana se for o caso    df['budget'].fillna(df['budget'].median(), inplace=True)
+        - VERIFICAR SE HÁ DADOS DUPLICADO  df.duplicated().sum()
+        - RETIRAR VALORES DUPLICADOS df.drop_duplicates(inplace=True)
+        - CRIAR novas colunas se for preciso    df['Profit_Percentage'] = (df['Profit']/df['gross'])*100
+        - ver quais graficos seriam de melhor visualização
+        -chama um grafico de mapa de calor
+        -ver colunas quee estão altamente correlacionadas
+        - sempre olhar coluna para trazer mais informações
+        - procurar variaveis categoricas
+
+
+
+  Variaveis:
+MATRICULA           int64 ----- posso tirar
+NOME               object ----- posso tirar
+REPROVACOES_DE      int64
+REPROVACOES_EM      int64
+REPROVACOES_MF      int64
+REPROVACOES_GO      int64
+NOTA_DE           float64
+NOTA_EM           float64
+NOTA_MF           float64
+NOTA_GO           float64
+INGLES            float64
+H_AULA_PRES         int64
+TAREFAS_ONLINE      int64
+FALTAS              int64
+PERFIL             object   -------> variavel - alvo
+
+
+
+
+limpeza 1 :
+['REPROVACOES_DE',
+ 'REPROVACOES_EM',
+ 'REPROVACOES_MF',
+ 'REPROVACOES_GO',
+ 'NOTA_DE',
+ 'NOTA_EM',
+ 'NOTA_MF',
+ 'NOTA_GO',
+ 'INGLES',
+ 'H_AULA_PRES',
+ 'TAREFAS_ONLINE',
+ 'FALTAS',
+ 'PERFIL']
+
+
+LIMPEZA 2: RETIRADA DE DADOS FALTANTES
+
+Valores nulos no dataset após a transformação SimpleImputer:
+
+REPROVACOES_DE    0
+REPROVACOES_EM    0
+REPROVACOES_MF    0
+REPROVACOES_GO    0
+NOTA_DE           0
+NOTA_EM           0
+NOTA_MF           0
+NOTA_GO           0
+INGLES            0
+H_AULA_PRES       0
+TAREFAS_ONLINE    0
+FALTAS            0
+PERFIL            0
+dtype: int64
+
+
+LIMPEZA 3 - #verificar se existe dado duplicado, VALORES DUPLICADOS INVIEZAM O MODELO
+
+
+
+criar uma média para as notas
+nota_de + nota_em + nota_mf + nota_go / 4
+
+
+df_data_3.dtypes
+(df_data_3['REPROVACOES_DE']).dtypes
+df_data_3['REPROVACOES_DE'].astype('float64')
+df_data_3['REPROVACOES_EM'].astype('float64')
+df_data_3['REPROVACOES_GO'].astype('float64')
+df_data_3.dtypes
+
+
+
+TIPOS DE VARIAVEIS
+
+Variáveis quantitativas podem ser classificadas como discretas ou contínuas.
+
+                                       Variável categórica
+
+As variáveis categóricas contêm um número finito de categorias ou grupos distintos. Os dados categóricos podem não ter uma ordem lógica.
+Por exemplo, os preditores categóricos incluem gênero, tipo de material e método de pagamento.
+
+                                        Variável discreta
+
+Variáveis discretas são variáveis numéricas que têm um número contável de valores entre quaisquer dois valores.
+Uma variável discreta é sempre numérica. Por exemplo, o número de reclamações de clientes ou o número de falhas ou defeitos.
+
+                                        Variável contínua
+Variáveis contínuas são variáveis numéricas que têm um número infinito de valores entre dois valores quaisquer. Uma variável contínua pode ser numérica ou de data/hora. Por exemplo, o comprimento de uma peça ou a data e hora em que um pagamento é recebido.
+
+balanceamento de dados?
+
+por exemplo, não só nome é irrelevante , mas tbm a matricula e se o cara sabe ingles ou não
+outra dica é trocar estratégia de dados faltantes
+ala que o modelo se foca nas notas e na frequência
+horas de aula presencial, faltas, tbm sao
+eu consegui 82 fazendo tunning de parâmetro

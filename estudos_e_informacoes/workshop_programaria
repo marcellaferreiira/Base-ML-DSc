@@ -1,0 +1,138 @@
+Workshop programaria
+
+
+links: https://www.programaria.org/como-criar-o-seu-primeiro-projeto-de-machine-learning/
+
+Comandos linux/ubuntu
+
+instalar uma virtual env
+
+virtualenv nome_da_virtualenv
+
+source nome_da_virtualenv/bin/activate   # para ativar
+
+deactivate  # para desativar
+
+
+      - Instalando pandas
+
+pip install pandas
+
+      - Instalando o scikit learn
+
+pip install -U scikit-learn
+
+
+      - Instalando o matplotlib
+
+pip install matplotlib
+
+        - Instalando o seaborn
+
+pip install seaborn
+
+        - Instalando o plotnine
+
+pip install plotnine
+
+
+      -Entrar no jupyter notebook via terminal
+
+jupyter notebook
+
+
+link : https://minerandodados.com.br/python-para-analise-de-dados/
+
+métodos para usar no pandas
+
+type(dataset)
+dataset.head()
+dataset.columns - apresenta todas as colunas
+dataset.count() - saber qts linhas tem a base de dados
+dataset.describe() - Informações estas como: desvio padrão, média, valor mínimo e máximo de colunas,
+
+
+Explorando os dados - os metodos ficam após o primeiro .
+(usando o exemplo de uma imobiliaria)
+pd.value_counts(dataset['bedrooms']) - quantidade de imoveis por tamanho de quarto
+dataset.loc[dataset['bedrooms']==3] - imoveis com até 3 quartos
+dataset.sort_values(by='price', ascending=False) - ordena a exibição pela coluna 'price'
+dataset[dataset['bedrooms']==4].count() - contar a qtd de imoveis com até 4 quartos
+
+
+
+PARTE 2
+
+
+Links:
+documentação do pandas: https://pandas.pydata.org/docs/
+
+
+Começo de projeto - brainstorm
+
+
+-Qual o meu problema alvo?
+- dados como forma de encontrar soluções e criar conhecimento
+-Tirar insithgs através dos dados
+-Qual direção tomar
+- quais dados são importantes e quais não são para a análise
+Etapas do Ciclo de trabalho
+
+- obtenção de dados
+- análise exploratória
+        - precisa saber que direção tomar
+        - quais dados são relevantes ou não
+        -se estão balanceados ou não
+        -qual o tipo de modelo se vai usar mais para frente
+        -qual o uso vai dar para aquele dado
+        -descobrir a usabilidade desses dados
+        -qual o caminho esses dados estão me levando
+        -tirar conhecimento dos dados na análise exploratória
+-Métodos de extração
+    - quais variaveis vou usar
+    -se preciso fazer alguma tranformação nos dados ou não
+    -criação do modelo
+-Avaliação dos resultados
+    - tirar as conclusões
+    -é bom ou ruim?
+    - é melhor em algum cenário do que em outro?
+
+
+- Como obter dados publicos e gratuitos
+    -Kaggle
+    -UCI machine learning
+    -repository
+
+    BIBLIOTECAS
+1- Pandas
+        Dataframe
+-são tabelas
+-manipulação de dados
+-fazer inferencias em cima desses dados
+-análise exploratória
+
+2- matplotlib
+
+-importar imagens  e gráficos
+
+3- seaborn
+-cria graficos
+
+4-plotnine
+- criar gráficos
+
+OBS: o que são arquivos .csv?
+CSV= Comma-separated values
+        - Os arquivos Comma-separated values, também conhecido como CSV, são arquivos de texto de formato
+        que faz uma ordenação de bytes ou um formato de terminador de linha, separando valores com vírgulas
+Exemplo: **tabela com 3 celulas **
+exemplo fora da tabela: 1997,Ford,E350,"ac, abs, moon",30100.00
+1999,Chevy,"Venture ""Extended Edition""",,49000.00
+1996,Jeep,Grand Cherokee,"MUST SELL!
+air, moon roof, loaded",479699.00
+
+
+Passos usandos no primeiro modelo preditivo
+    - fazer o import dos dados
+    - fazer uma análise exploratoria dos dados ( limpando ou adicionando)
+    - fazer uma visualização dos dados usando gráficos
